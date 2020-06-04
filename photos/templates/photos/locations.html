@@ -1,0 +1,15 @@
+{% extends 'photos/base.html'%}
+
+{% block content %}
+  <div class="container category-list">
+    <div class="row">
+      {% for location in locations %}
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="card">
+          <h4>{{ location.city }}</h4>
+        </div>
+      </div>
+    {% endfor %}
+    </div>  
+  </div>
+{% endblock %}

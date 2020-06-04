@@ -1,0 +1,11 @@
+{% extends 'photos/base.html'%}
+
+{% block content %}
+  <div class="container">
+    {% for loc_img in loc_results %}
+    <div class="card" style="width: 20rem;">
+      <img src="{{ loc_img.photo.url }}" alt="" class='img-fluid' >
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
