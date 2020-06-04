@@ -38,12 +38,21 @@ class Image(models.Model):
     return self.delete()
 
   @classmethod
-  def by_category(cls, place):
+  def by_category(cls, category_name):
     try:
-      img_by_category = cls.objects.filter(category=place).all()
+      img_by_category = cls.objects.filter(category= category_name).all()
       return img_by_category
     except ObjectDoesNotExist:
       message = "There are no images from that category"
+      return message
+  
+  @classmethod
+  def by_location(cls, place):
+    try:
+     img_by_location = cls.objects.filter(location=place).all()
+     return img_by_location
+    except ObjectDoesNotExist:
+      message = "There are no images from that location"
       return message
   
 
