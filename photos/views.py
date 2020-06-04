@@ -26,10 +26,29 @@ def categories(request):
 
   return render(request, 'photos/categories.html', context)
 
-def category_view(request, category):
+def category_view(request, category_name):
 
-  
-  return render(request, 'photos/category_view.html')
+  cat = Image.by_category(category_name)
+
+  # title = f"{}".format(place)
+
+  context = {
+    'cat_results': cat
+  }
+
+  return render(request, 'photos/category_view.html', context)
+
+def location_view(request, place):
+
+  locale = Image.by_location(place)
+
+  # title = f"{}".format(place)
+
+  context = {
+    'loc_results': locale
+  }
+
+  return render(request, 'photos/location_view.html', context)
 
 # def details(request):
 #   return render(request, 'photos/details.html')
