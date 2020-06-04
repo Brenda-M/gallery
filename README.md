@@ -27,8 +27,8 @@ Personal Gallery
 
 2. Create and activate a virtual environment. 
 
- `virtualenv venv --python=python3.6
-  source venv/bin/activate`
+  `virtualenv venv --python=python3.6`
+  `source venv/bin/activate`
 
 3. Install required Dependencies.
 
