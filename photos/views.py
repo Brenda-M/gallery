@@ -26,6 +26,19 @@ def categories(request):
 
   return render(request, 'photos/categories.html', context)
 
+def locations(request):
+
+  title = 'Locations'
+
+  all_locations = Location.objects.all()
+
+  context = {
+    'locations':all_locations,
+    'title': title
+  }
+
+  return render(request, 'photos/locations.html', context)
+
 def category_view(request, category_name):
 
   cat = Image.by_category(category_name)
