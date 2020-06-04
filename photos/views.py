@@ -15,7 +15,7 @@ def home(request):
 
 def categories(request):
 
-  title = Categories
+  title = 'Categories'
 
   all_categories = Category.objects.all()
 
@@ -25,6 +25,11 @@ def categories(request):
   }
 
   return render(request, 'photos/categories.html', context)
+
+def category_view(request, category):
+
+  
+  return render(request, 'photos/category_view.html')
 
 # def details(request):
 #   return render(request, 'photos/details.html')
