@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 
 class Location(models.Model):
   city = models.CharField(max_length=30)
@@ -24,6 +25,9 @@ class Image(models.Model):
   category = models.ForeignKey(Category, on_delete=models.CASCADE)
   timestamp = models.DateField(auto_now_add=True)
 
+  class Meta:
+    ordering = ['-id']
+
   def __str__(self):
     return self.img_name
   
@@ -32,6 +36,17 @@ class Image(models.Model):
   
   def delete_image(self):
     return self.delete()
+
+  @classmethod
+  def by_category(cls, place):
+    try:
+      img_by_category = cls.objects.filter(category=place).all()
+      return img_by_category
+    except ObjectDoesNotExist:
+      message = "There are no images from that category"
+      return message
+  
+
 
 
 
