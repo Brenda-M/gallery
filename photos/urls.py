@@ -4,8 +4,9 @@ from . import views
 urlpatterns = [
   path('', views.home, name='homepage'),
   path('categories/', views.categories, name='category-list'),
-  path('locations/', views.categories, name='location-list'),
+  path('locations/', views.locations, name='location-list'),
   path('category/images/<int:category_name>', views.category_view, name='by_category'),
   path('location/images/<int:place>', views.location_view, name='by_location'),
-  # path('/details/<int:pk>/', views.details, name='image_details'),
+  path('copy/<int:pk>', views.copy_url, name='copy_image'),
+  path('search-results/', views.search, name='image-search')
 ]
