@@ -38,9 +38,25 @@ class Image(models.Model):
   def delete_image(self):
     return self.delete()
   
-  def get_image_by_id(self):
-    pass
-
+  @classmethod
+  def get_image_by_id(cls, pk):
+    try:
+      img_f = cls.objects.get(id=pk)
+      return img_f
+    except ObjectDoesNotExist:
+      message = "Image does not exist"
+      return message
+  
+  @classmethod
+  def update_image(cls, pk, new_img):
+    img_update = cls.get_image_by_id(pk)
+    if img_update:
+      Image.objects.filter(id=pk).update(photo=new_img)
+      message='Image was updated successfully'
+      return message
+    else:
+      message ='Image does not exist'
+      return message
 
   @classmethod
   def by_category(cls, category_name):
@@ -59,6 +75,11 @@ class Image(models.Model):
     except ObjectDoesNotExist:
       message = "There are no images from that location"
       return message
+
+  @classmethod
+  def search_cat(cls, category_name):
+    imgs_in_cat = cls.objects.filter(category__cat_name__icontains=category_name)
+    return imgs_in_cat
   
 
   
