@@ -1,0 +1,24 @@
+{% extends 'photos/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+
+<div class="container">
+  {% if results %}
+  <h4>Search results for {{ term }} </h4>
+  <div class="all-images">
+    
+    {% for img in results %}
+      <div class="card" style="width: 20rem;">
+          <img src="{{img.photo.url }}" alt="" class='img-fluid'onclick="showModal('{{img.img_name}}','{{img.description}}','{{img.photo.url}}','{{img.category}}','{{img.location.country}}', '{{img.location.city}}','{{img.location.locale}}','{{img.photo.url}}',)" >
+      </div>
+      {% include 'photos/image_modal.html'%}
+    {% endfor %}
+  </div> 
+  {% else %}
+    <h4>There are no images related to {{term}}</h4>
+  {% endif %}
+</div>
+{% endblock %}

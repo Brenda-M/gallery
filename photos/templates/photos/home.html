@@ -3,13 +3,20 @@
 
 {% block content %}
 <div class="container">
+
+  {% include 'photos/search_form.html'%}
+
   <div class="all-images">
     {% for img in images %}
-    <div class="card" style="width: 20rem;">
-        <img src="{{ img.photo.url }}" alt="" class='img-fluid' >
-    </div>
+      <div class="card" style="width: 20rem;" data-toggle="modal" data-target="#imageModal">
+        <img src="{{ img.photo.url }}" alt="" class='img-fluid' onclick="showModal('{{img.img_name}}','{{img.description}}','{{img.photo.url}}','{{img.category}}','{{img.location.country}}', '{{img.location.city}}','{{img.location.locale}}','{{img.photo.url}}',)">
+      </div>
+      {% include 'photos/image_modal.html'%}
     {% endfor %}
-  </div> 
+  </div>
 </div>
 
 {% endblock %}
+
+
+
