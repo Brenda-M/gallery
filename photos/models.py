@@ -1,3 +1,4 @@
+import pyperclip
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -21,8 +22,8 @@ class Image(models.Model):
   photo = models.ImageField(upload_to = 'projects/')
   img_name = models.CharField(max_length=100, blank=True)
   description = models.CharField(max_length=150)
-  location = models.ForeignKey(Location, on_delete=models.CASCADE)
-  category = models.ForeignKey(Category, on_delete=models.CASCADE)
+  location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='img_location')
+  category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='img_category')
   timestamp = models.DateField(auto_now_add=True)
 
   class Meta:
@@ -36,6 +37,10 @@ class Image(models.Model):
   
   def delete_image(self):
     return self.delete()
+  
+  def get_image_by_id(self):
+    pass
+
 
   @classmethod
   def by_category(cls, category_name):
@@ -54,6 +59,9 @@ class Image(models.Model):
     except ObjectDoesNotExist:
       message = "There are no images from that location"
       return message
+  
+
+  
   
 
 
