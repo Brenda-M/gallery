@@ -19,13 +19,31 @@ class ImageTestClass(TestCase):
   def test_save(self):
     self.image1.save_image()
   
+  def test_get_img_by_id(self):
+    img = Image.get_image_by_id(self.image1.pk)
+    self.assertEqual(img, self.image1)
+  
+  def test_search(self):
+    img_cat = Image.search_cat('food')
+    self.assertIn(self.image1, img_cat)
+    
   def test_delete_image(self):
     image2 = Image(photo='test_2.jpg', img_name='test 2 trip', description='short trip to hawaii', location=self.location, category=self.category)
     image2.save_image()
-    img_del = Image.objects.filter(id=1)
-    all_imgs = Image.objects.all()
-    img_del.delete()
-    self.assertTrue(len(all_imgs) == 0)
+    image2.delete_image()
+    result=Image.get_image_by_id(pk=image2.id)
+    self.assertEqual(result,"Image does not exist")
+  
+  def test_update_image(self):
+    new_img = 'photo2.jpg'
+    Image.update_image(self.image1.id,new_img)
+    updated_img = Image.get_image_by_id(self.image1.id)
+    self.assertEqual(updated_img.photo,"photo2.jpg")
+
+
+      
+
+   
   
 
     
