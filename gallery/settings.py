@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'artsyplace',
+        'NAME': 'theartyplace',
         'USER': 'postgres',
         'PASSWORD':'Bm19952810',
     }

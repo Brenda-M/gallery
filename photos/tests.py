@@ -39,6 +39,13 @@ class ImageTestClass(TestCase):
     Image.update_image(self.image1.id,new_img)
     updated_img = Image.get_image_by_id(self.image1.id)
     self.assertEqual(updated_img.photo,"photo2.jpg")
+  
+  class CategoryTestClass(TestCase):
+
+    def setUp(self):
+      self.category2 = Category(cat_name='Travel')
+
+
 
 
       

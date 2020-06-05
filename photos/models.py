@@ -7,7 +7,6 @@ class Location(models.Model):
   country = models.CharField(max_length=30)
   locale = models.CharField(max_length=30)
 
-
   def __str__(self):
     return self.locale
 
@@ -16,7 +15,6 @@ class Category(models.Model):
 
   def __str__(self):
     return self.cat_name
-
 
 class Image(models.Model):
   photo = models.ImageField(upload_to = 'projects/')
