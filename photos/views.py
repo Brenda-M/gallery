@@ -1,5 +1,7 @@
+import pyperclip
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.db.models import Q
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Image, Location, Category
 
 def home(request):
@@ -62,6 +64,31 @@ def location_view(request, place):
   }
 
   return render(request, 'photos/location_view.html', context)
+
+def copy_url(request, pk):
+
+  img = Image.objects.filter(id=pk)
+
+  image_url = img.copy_img_url()
+
+  pyperclip.copy(image_url)
+
+  return HttpResponseRedirect(self.request.path_info)
+
+
+def search(request):
+  template = 'photos/search.html'
+  query = request.GET.get('q') #q is the query variable when users searches webite
+  results = Image.objects.filter(
+    Q(img_name__icontains=query) | 
+    Q(description__icontains=query) 
+    )
+    
+  context ={
+    'results':results,
+    'term':query
+  }
+  return render(request, template, context)
 
 # def details(request):
 #   return render(request, 'photos/details.html')
