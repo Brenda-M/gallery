@@ -27,6 +27,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 INSTALLED_APPS = [
     'photos',
     'bootstrap4',
+    'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,10 +130,10 @@ USE_TZ = True
 
 #cloudinary configurations
 
-cloudinary.config(
-    cloud_name=config(cloud_name),
-    api_key=config(api_key),
-    api_secret=config(api_secret),
+cloudinary.config( 
+    cloud_name = config('cloud_name'), 
+    api_key = config('api_key'),
+    api_secret = config('api_secret'),
 )
 
 
