@@ -12,7 +12,7 @@
     <div class="all-images">
       {% for img in images %}
       <div class="card" style="width: 22rem;" data-toggle="modal" data-target="#imageModal">
-        <img src="{{ img.photo.url }}" alt="" class='img-fluid'
+        <img src="{{ img.photo.url }}" alt="" class='img-fluid' 
           onclick="showModal('{{img.img_name}}','{{img.description}}','{{img.photo.url}}','{{img.category}}','{{img.location.country}}', '{{img.location.city}}','{{img.location.locale}}','{{img.photo.url}}',)">
       </div>
       {% include 'photos/image_modal.html'%}

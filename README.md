@@ -1,12 +1,22 @@
 # Project Name
 
-Personal Gallery
+The Artys Place
 
 ## Description
 
-## Required Features
+The Artsy Place is  a personal gallery application that allows a person to display their photos for others to see.
 
-## Additional Features
+## Core Features
+
+<ul>
+<li>An admin can upload new photos through an admin panel</li>
+<li>An admin can update a photos details</li>
+<li>A user can copy an image's link</li>
+<li>A user can view images by category and location</li>
+<li>A user can view a photo's details</li>
+<li>Search for different categories of photos</li>
+</ul>
+
 
 ## Prerequisites
 
@@ -16,15 +26,14 @@ Personal Gallery
 <li>Django </li>
 </ul>
 
-## Technologies & Languages
+## Technologies and Tools Used
 
 <ul>
+<li>Html and Css </li>
+<li>Git Version Control</li>
+<li>Javascript </li>
 <li>Django</li>
-<li>Javascript</li>
-<li>Html</li>
-<li>Css/li>>
 </ul>
-
 
 ## Installation and Setup
 
@@ -40,12 +49,20 @@ Create and activate a virtual environment.
 Install required Dependencies.
 
   `pip install -r requirements.txt`
+  `Ensure that the virtual  environment is active before making any instalations`
+
+Setup a database
+  `python manage.py makemigrations`
+  `python manage.py migrate`
 
 Running the application
 
   `python manage.py server`
 
+## Live Link
 
-5. License
+View the deployed site <a href="https://theartsyplace.herokuapp.com/">here</a>
 
-  MIT
+## License
+
+ MIT
