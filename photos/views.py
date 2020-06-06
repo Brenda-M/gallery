@@ -7,26 +7,24 @@ from .models import Image, Location, Category
 def home(request):
 
   all_images = Image.objects.order_by('-id').all()
-  
 
   context = {
     'images':all_images
   }
-
   return render(request, 'photos/home.html', context)
+
 
 def categories(request):
 
   title = 'Categories'
 
   all_categories = Category.objects.all()
-
   context = {
     'categories':all_categories,
     'title': title
   }
-
   return render(request, 'photos/categories.html', context)
+
 
 def locations(request):
 
@@ -41,6 +39,7 @@ def locations(request):
 
   return render(request, 'photos/locations.html', context)
 
+
 def category_view(request, category_name):
 
   cat = Image.by_category(category_name)
@@ -53,21 +52,21 @@ def category_view(request, category_name):
 
   return render(request, 'photos/category_view.html', context)
 
+
 def location_view(request, place):
 
   locale = Image.by_location(place)
 
-  # title = f"{}".format(place)
-
   context = {
-    'loc_results': locale
+    'loc_results': locale,
   }
 
   return render(request, 'photos/location_view.html', context)
 
+
 def search(request):
   template = 'photos/search.html'
-  query = request.GET.get('q') #q is the query variable when users searches webite
+  query = request.GET.get('q') #q is the query variable when users search a webite
   results = Image.objects.filter(
     Q(category__cat_name__icontains=query)  
     )  
