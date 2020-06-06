@@ -8,7 +8,7 @@ Personal Gallery
 
 ## Additional Features
 
-## Prerequisite
+## Prerequisites
 
 <ul>
 <li>Python3</li>
@@ -18,23 +18,30 @@ Personal Gallery
 
 ## Technologies & Languages
 
+<ul>
+<li>Django</li>
+<li>Javascript</li>
+<li>Html</li>
+<li>Css/li>>
+</ul>
+
 
 ## Installation and Setup
 
-1. Clone the repository below
+Clone the repository below
 
   `git clone https://github.com/{username}/{repo_name}.git`
 
-2. Create and activate a virtual environment. 
+Create and activate a virtual environment. 
 
   `virtualenv venv --python=python3.6`
   `source venv/bin/activate`
 
-3. Install required Dependencies.
+Install required Dependencies.
 
   `pip install -r requirements.txt`
 
-4. Running the application
+Running the application
 
   `python manage.py server`
 
