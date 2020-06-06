@@ -1,5 +1,6 @@
 import pyperclip
 from django.db import models
+from cloudinary.models import CloudinaryField
 from django.core.exceptions import ObjectDoesNotExist
 
 class Location(models.Model):
