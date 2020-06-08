@@ -120,6 +120,18 @@ header .card{
   background-image: url('../images/cat_b2.jpg');
 }
 
+@media screen and (max-width: 320px){
+  .header .card{
+    position: absolute;
+    width: 28rem;
+    padding:30px;
+    text-align: center;
+    top: 30%;
+    left: 35%;
+  }
+}
+
+
 /* custom fonts */
 @font-face {
   font-family: 'The Historia Demo';
