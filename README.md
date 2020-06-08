@@ -39,14 +39,15 @@ The Artsy Place is  a personal gallery application that allows a person to displ
 
 Clone the repository below
 
-  `git clone https://github.com/{username}/{repo_name}.git`
+```
+git clone https://github.com/{username}/{repo_name}.git
+```
 
 Create and activate a virtual environment. 
 
   ```
   virtualenv venv --python=python3.6
   source venv/bin/activate
-
   ```
 
 Install required Dependencies.
@@ -60,7 +61,6 @@ Setup a local database.
 
   ```
   CREATE DATABASE <your-database-name>
-
   ```
 
 Create a .env file and add the following.
@@ -74,7 +74,6 @@ Create a .env file and add the following.
   DB_HOST='127.0.0.1'
   MODE='dev'
   ALLOWED_HOSTS='.localhost', '.127.0.0.1'
-  
   ```
 
 Make a migrations file and migrate.
@@ -82,12 +81,13 @@ Make a migrations file and migrate.
   ```
   python manage.py makemigrations
   python manage.py migrate
-
   ```
 
 Run the application
 
-  `python manage.py server`
+```
+python manage.py server.
+```
 
 ## Live Link
 
